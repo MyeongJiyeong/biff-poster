@@ -7,26 +7,26 @@
    폰트: 전부 Inter
    ========================================================= */
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800&display=swap");
 
 /* ---------- 1. 변수 ---------- */
 :root {
-  --beige: #F0E6D8;
-  --red:   #D30031;
-  --black: #0A0A0A;
-  --white: #FFFFFF;
+  --beige: #f0e6d8;
+  --red: #d30031;
+  --black: #0a0a0a;
+  --white: #ffffff;
 
-  --pad:     clamp(1rem, 4vw, 3.5rem);     /* 포스터 바깥 여백 */
-  --gap:     1.4rem;                        /* 행 사이 간격 (Mobile) */
-  --bar:     clamp(0.9rem, 3vw, 3rem);     /* 검정 세로 막대 굵기 */
+  --pad: clamp(1rem, 4vw, 3.5rem); /* 포스터 바깥 여백 */
+  --gap: 1.4rem; /* 행 사이 간격 (Mobile) */
+  --bar: clamp(0.9rem, 3vw, 3rem); /* 검정 세로 막대 굵기 */
 
   /* 글자 크기 (Mobile 기준 시안: 375px)
      최대값 = 시안 숫자, 중간 값은 화면 폭(vw)에 비례 */
-  --fs-info:  clamp(9px,  2.67vw, 10px);
+  --fs-info: clamp(9px, 2.67vw, 10px);
   --fs-title: clamp(36px, 12.8vw, 48px);
-  --fs-sub:   clamp(18px, 6.4vw,  24px);
+  --fs-sub: clamp(18px, 6.4vw, 24px);
   --fs-label: clamp(16px, 5.33vw, 20px);
-  --fs-list:  clamp(10px, 2.93vw, 11px);
+  --fs-list: clamp(10px, 2.93vw, 11px);
 
   /* BIFF 2026 글자가 검정 박스 오른쪽으로 삐져나오는 길이 (타이틀 글자 크기에 비례) */
   --spill: calc(var(--fs-title) * 0.16);
@@ -37,13 +37,20 @@
 }
 
 /* ---------- 2. 리셋 ---------- */
-* { box-sizing: border-box; margin: 0; padding: 0; }
-ul, ol { list-style: none; }
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+ul,
+ol {
+  list-style: none;
+}
 
 body {
   background: var(--beige);
   color: var(--black);
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
 }
 
 /* =========================================================
@@ -51,9 +58,9 @@ body {
    ========================================================= */
 
 .poster {
-  position: relative;            /* Tablet에서 .organizer를 absolute로 붙일 기준 */
+  position: relative; /* Tablet에서 .organizer를 absolute로 붙일 기준 */
   min-height: 100svh;
-  padding: 1.3rem var(--pad) var(--pad);   /* 위 여백을 줄여 메타 정보를 위로 */
+  padding: 1.3rem var(--pad) var(--pad); /* 위 여백을 줄여 메타 정보를 위로 */
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   grid-template-rows: auto auto auto auto auto;
@@ -68,7 +75,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 0.35rem;
-  margin-bottom: 3.5rem;          /* 메타를 위로 올린 만큼 아래 간격 유지 */
+  margin-bottom: 3.5rem; /* 메타를 위로 올린 만큼 아래 간격 유지 */
   color: var(--red);
   font-weight: 700;
   font-size: var(--fs-info);
@@ -107,10 +114,14 @@ body {
   position: relative;
   z-index: 2;
   margin-top: calc(-1.2em - var(--gap));
-  padding-right: var(--spill);   /* 정사각형 오른쪽 끝선에 맞춤 */
+  padding-right: var(--spill); /* 정사각형 오른쪽 끝선에 맞춤 */
 }
-.subtitle span { display: block; }
-.subtitle span:first-child { color: var(--white); }
+.subtitle span {
+  display: block;
+}
+.subtitle span:first-child {
+  color: var(--white);
+}
 
 /* ★ 메인 타이틀: BIFF 2026 (ExtraBold, 흰색)
    검정 박스는 ::before, 글자는 박스 오른쪽 밖으로 삐져나옴 */
@@ -128,13 +139,15 @@ body {
 .title::before {
   content: "";
   position: absolute;
-  top: 0; bottom: 0; left: 0;
+  top: 0;
+  bottom: 0;
+  left: 0;
   right: var(--spill);
   background: #000;
 }
 .title span {
   position: relative;
-  display: block;                /* Mobile: 두 줄 */
+  display: block; /* Mobile: 두 줄 */
 }
 
 /* 프로그램: 세로 Flexbox */
@@ -145,7 +158,9 @@ body {
   flex-direction: column;
   gap: 0.9rem;
   margin-top: 0.6rem;
-  margin-right: calc(var(--pad) * 1.5);   /* 오른쪽 여백: --pad + 1.5×--pad = 2.5배 */
+  margin-right: calc(
+    var(--pad) * 1.5
+  ); /* 오른쪽 여백: --pad + 1.5×--pad = 2.5배 */
 }
 .program h2 {
   align-self: flex-end;
@@ -154,7 +169,9 @@ body {
   border-bottom: 0.2rem solid var(--black);
   padding-bottom: 0.15rem;
 }
-.program h2 span { display: inline; }
+.program h2 span {
+  display: inline;
+}
 .program ol {
   display: flex;
   flex-direction: column;
@@ -170,24 +187,26 @@ body {
 /* 목록은 제목줄/설명줄 모두 Medium (strong의 기본 굵기를 덮어씀) */
 .program li,
 .program li strong,
-.program li span { font-weight: 500; }
+.program li span {
+  font-weight: 500;
+}
 
 /* Tablet에서만 쓰는 줄바꿈 (기본은 숨김) */
-.br-tablet { display: none; }
-
+.br-tablet {
+  display: none;
+}
 
 /* =========================================================
    4. 첫 번째 분기점: Tablet (600px 이상) ─ 768px 시안
    ========================================================= */
 @media (min-width: 600px) {
-
   :root {
     --gap: clamp(1rem, 2.4vw, 2rem);
-    --fs-info:  clamp(12px, 1.82vw, 14px);
+    --fs-info: clamp(12px, 1.82vw, 14px);
     --fs-title: clamp(56px, 10.4vw, 80px);
-    --fs-sub:   clamp(24px, 4.69vw, 36px);
+    --fs-sub: clamp(24px, 4.69vw, 36px);
     --fs-label: clamp(17px, 2.86vw, 22px);
-    --fs-list:  clamp(12px, 1.95vw, 15px);
+    --fs-list: clamp(12px, 1.95vw, 15px);
   }
 
   .poster {
@@ -224,7 +243,9 @@ body {
     margin-top: 0;
     padding-right: 1rem;
   }
-  .subtitle span:first-child { color: inherit; }
+  .subtitle span:first-child {
+    color: inherit;
+  }
 
   /* 타이틀: 왼쪽 끝 = PROGRAM LIST 글자 시작선(2열), 오른쪽 끝 = 막대 오른쪽 끝(9열 끝) */
   .title {
@@ -232,15 +253,17 @@ body {
     white-space: nowrap;
     padding: 0.1em 0 0.1em 0.25em;
   }
-  .title span { display: inline; }
+  .title span {
+    display: inline;
+  }
 
   .program {
     grid-column: 2 / 12;
     flex-direction: row;
     align-items: flex-start;
-    gap: 2.6rem;                             /* 라벨과 목록 사이 간격 */
+    gap: 2.6rem; /* 라벨과 목록 사이 간격 */
     margin-right: 0;
-    margin-top: clamp(1rem, 2.5vw, 2rem);   /* 위 요소들과 간격 더 */
+    margin-top: clamp(1rem, 2.5vw, 2rem); /* 위 요소들과 간격 더 */
   }
   .program h2 {
     align-self: flex-start;
@@ -249,7 +272,9 @@ body {
     border-right: 0.25rem solid var(--black);
     padding: 0 1rem 0 0;
   }
-  .program h2 span { display: block; }
+  .program h2 span {
+    display: block;
+  }
   .program ol {
     gap: 1.4rem;
     text-align: left;
@@ -259,22 +284,22 @@ body {
 /* Tablet 구간(600~1023px)에서만 줄바꿈 적용:
    Opening Night / Selection, New Currents / Official Selection ... */
 @media (min-width: 600px) and (max-width: 1023px) {
-  .br-tablet { display: inline; }
+  .br-tablet {
+    display: inline;
+  }
 }
-
 
 /* =========================================================
    5. 두 번째 분기점: Desktop (1024px 이상) ─ 1440px 시안
    ========================================================= */
 @media (min-width: 1024px) {
-
   :root {
-    --fs-info:  clamp(14px, 1.39vw, 20px);
+    --fs-info: clamp(14px, 1.39vw, 20px);
     --fs-title: clamp(78px, 7.64vw, 110px);
-    --fs-sub:   clamp(32px, 3.125vw, 45px);
+    --fs-sub: clamp(32px, 3.125vw, 45px);
     --fs-label: clamp(24px, 2.43vw, 35px);
-    --fs-list:  clamp(14px, 1.39vw, 20px);
-    --spill: calc(var(--fs-title) * 0.2);
+    --fs-list: clamp(14px, 1.39vw, 20px);
+    --spill: calc(var(--fs-title) * 0.16); /* Tablet/Mobile과 같은 비율 */
   }
 
   .poster {
@@ -291,19 +316,17 @@ body {
     justify-content: flex-start;
     gap: 0.6rem;
   }
-  .meta .organizer { position: static; }
+  .meta .organizer {
+    position: static;
+  }
 
-  /* ★ Pile(겹침): 정사각형이 막대 칸 안으로 절반 들어가 막대 위에 얹힘.
-     margin-right 음수로 오른쪽으로 밀고, position + z-index로 막대보다 위에 올림 */
   .square {
-    grid-column: 5 / 9;          /* 4열로 확대 */
+    grid-column: 5 / 9; /* 4열로 확대 */
     grid-row: 2;
     align-self: end;
     justify-self: end;
     width: 88%;
-    margin-right: calc(var(--bar) * -0.5);
-    position: relative;
-    z-index: 1;
+    margin-right: clamp(0.3rem, 1vw, 0.9rem); /* 막대와 간격 (겹치지 않음) */
   }
 
   .bar {
@@ -323,8 +346,12 @@ body {
     margin-top: 0;
     padding-right: 0.4em;
   }
-  .subtitle span { display: inline; }
-  .subtitle span:last-child { display: block; }
+  .subtitle span {
+    display: inline;
+  }
+  .subtitle span:last-child {
+    display: block;
+  }
 
   /* 타이틀: 왼쪽 끝 = PROGRAM LIST 옆 세로선, 오른쪽 끝 = 서브타이틀 열 끝 */
   .title {
@@ -339,11 +366,11 @@ body {
     grid-row: 4;
     align-items: center;
     gap: 1.5rem;
-    margin-top: clamp(1rem, 2.5vw, 2.5rem);   /* 위 요소들과 간격 더 */
+    margin-top: clamp(1rem, 2.5vw, 2.5rem); /* 위 요소들과 간격 더 */
   }
   .program h2 {
     align-self: stretch;
-    width: var(--label-w);       /* 타이틀 박스 시작 위치와 같은 값 */
+    width: var(--label-w); /* 타이틀 박스 시작 위치와 같은 값 */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -353,5 +380,7 @@ body {
     flex-direction: row;
     gap: clamp(1rem, 2.5vw, 3rem);
   }
-  .program li { flex: 1 1 0; }
+  .program li {
+    flex: 1 1 0;
+  }
 }
