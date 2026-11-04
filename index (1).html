@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>BIFF 2026 – Responsive Poster</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- 포스터 전체 = Grid 컨테이너 (자식 요소를 격자 칸에 배치) -->
+<main class="poster">
+
+  <!-- 메타 정보 그룹: Flexbox (Desktop 세로 / Tablet 가로 양끝) -->
+  <ul class="meta">
+    <li>6 - 15 October 2026</li>
+    <li>Busan Cinema Center</li>
+    <li class="organizer">Organized by BIFF</li>
+  </ul>
+
+  <!-- 장식용 도형: 빨간 정사각형, 검정 세로 막대 -->
+  <div class="square" aria-hidden="true"></div>
+  <div class="bar" aria-hidden="true"></div>
+
+  <!-- 서브 타이틀: Desktop에서는 세로 글자, Tablet/Mobile에서는 가로 글자 -->
+  <p class="subtitle">
+    <span>31st BUSAN</span>
+    <span>International</span>
+    <span>Film Festival</span>
+  </p>
+
+  <!-- 메인 타이틀 -->
+  <h1 class="title"><span>BIFF</span> <span>2026</span></h1>
+
+  <!-- 프로그램 목록: Flexbox (가로 4열 → 세로 스택) -->
+  <section class="program" aria-labelledby="program-label">
+    <h2 id="program-label"><span>PROGRAM</span> <span>LIST</span></h2>
+    <ol>
+      <!-- br.br-tablet: Tablet 폭(600~1023px)에서만 줄바꿈이 적용됨 (CSS 참고) -->
+      <li><strong>01. OPENING FILM</strong><span>Opening Night<br class="br-tablet"> Selection</span></li>
+      <li><strong>02. COMPETITION</strong><span>New Currents /<br class="br-tablet"> Official Selection</span></li>
+      <li><strong>03. SPECIAL PROGRAM</strong><span>Special Focus /<br class="br-tablet"> Retrospective</span></li>
+      <li><strong>04. CLOSING FILM</strong><span>Closing Night Selection</span></li>
+    </ol>
+  </section>
+
+</main>
+
+</body>
+</html>
